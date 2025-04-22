@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr.Cars</title>
+
+  <style>
+    :root {
+      --azul-claro: #d0ebff;
+      --azul-lavanda: #a5d8ff;
+      --azul-suave: #74c0fc;
+      --azul-medio: #4dabf7;
+      --azul-profundo: #339af0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--azul-claro);
+    }
+
+    header {
+      background-color: var(--azul-medio);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: var(--azul-suave);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+    }
+
+    nav a {
+      color: #003566;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--azul-lavanda);
+    }
+
+    .hero img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    form {
+      background-color: white;
+      margin: 2rem auto;
+      padding: 2rem;
+      max-width: 500px;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    form h2 {
+      text-align: center;
+      color: #1c3f60;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .form-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      background-color: var(--azul-medio);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: var(--azul-profundo);
+    }
+
+    .galeria {
+      padding: 2rem;
+      background-color: white;
+      text-align: center;
+    }
+
+    .galeria h2 {
+      color: #1c3f60;
+      margin-bottom: 1.5rem;
+    }
+
+    .galeria-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+    }
+
+    .galeria-images img {
+      width: 100%;
+      max-width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--azul-suave);
+      color: #003566;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Dr.Cars</h1>
+    <p>Tu confianza sobre ruedas 🚗</p>
+  </header>
+
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Servicios</a>
+    <a href="#">Contacto</a>
+  </nav>
+
+  <section class="hero">
+    <h2>Bienvenido a nuestro taller</h2>
+    <p>Ofrecemos reparación, mantenimiento y diagnóstico automotriz.</p>
+    <img src="https://images.pexels.com/photos/4480505/pexels-photo-4480505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mecánico trabajando en el motor de un automóvil" />
+  </section>
+
+  <form id="contacto">
+    <h2>Contáctanos</h2>
+    <input type="text" id="nombre" placeholder="Tu nombre" required />
+    <input type="tel" id="telefono" placeholder="Tu teléfono" required />
+    <textarea id="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+    <div class="form-buttons">
+      <button type="button" onclick="enviarFormulario()">Enviar</button>
+      <button type="button" onclick="limpiarFormulario()">Limpiar</button>
+    </div>
+  </form>
+
+  <section class="galeria">
+    <h2>Nuestro Taller</h2>
+    <div class="galeria-images">
+      <img src="https://images.pexels.com/photos/4488637/pexels-photo-4488637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Vista panorámica del taller de autos" />
+      <img src="https://images.pexels.com/photos/19174967/pexels-photo-19174967/free-photo-of-wall-and-desk-in-the-workshop-with-sorted-tools.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Herramientas en la pared del taller" />
+      <img src="https://media.istockphoto.com/id/1335207083/photo/the-mechanic-holding-wrench-in-hand-for-fix-car-strong-woman-fix-under-the-car-in-garage-with.jpg?s=2048x2048&w=is&k=20&c=Iu40VS0uSQ3yYrliVsAF3uF0RFk4AyvMoGyVLEXTDYE=" alt="Mecánico inspeccionando automóvil elevado" />
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Dr.Cars. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function enviarFormulario() {
+      const nombre = document.getElementById('nombre').value;
+      const telefono = document.getElementById('telefono').value;
+      const mensaje = document.getElementById('mensaje').value;
+
+      if (nombre && telefono && mensaje) {
+        alert("Gracias " + nombre + ", tu mensaje ha sido enviado.");
+        limpiarFormulario();
+      } else {
+        alert("Por favor completa todos los campos.");
+      }
+    }
+
+    function limpiarFormulario() {
+      document.getElementById('nombre').value = '';
+      document.getElementById('telefono').value = '';
+      document.getElementById('mensaje').value = '';
+    }
+  </script>
+
+</body>
+</html>
